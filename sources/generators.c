@@ -29,6 +29,7 @@ void generator_form_set(
       generator->generate = (
         generate_sawtooth_up
       );
+      break;
     case sine:
       generator->generate = generate_sine;
       break;
