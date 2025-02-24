@@ -1,0 +1,26 @@
+name: continuous_integration_build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  continuous_integration_build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: checkout_vave
+      uses: actions/checkout@v4
+      with:
+        path: vave
+    - name: checkout_cexil
+      uses: actions/checkout@v4
+      with:
+        repository: alic3dev/cexil
+        path: cexil
+    - name: make_cexil
+      run: cd cexil && mkdir -p objects && cd fonts/cexil_font_transpiler && mkdir -p objects && cd ../../ && make
+    - name: make_vave
+      run: cd vave && mkdir -p objects && make
