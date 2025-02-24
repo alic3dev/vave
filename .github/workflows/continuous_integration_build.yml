@@ -11,6 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: checkout_vave
+      uses: actions/checkout@v4
+    - name: checkout_cexil
+      uses: actions/checkout@v4
+        with:
+          repository: alic3dev/cexil
+          path: ../cexil
+    - name: make_cexil
+        run: cd ../cexil && make
     - name: make
       run: mkdir -p objects && make
