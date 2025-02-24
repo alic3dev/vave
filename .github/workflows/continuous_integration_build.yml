@@ -21,6 +21,6 @@ jobs:
         repository: alic3dev/cexil
         path: cexil
     - name: make_cexil
-      run: cd ./cexil && mkdir -p objects && make
+      run: cd cexil && mkdir -p objects && cd fonts/cexil_font_transpiler && mkdir -p objects && cd ../../ && make
     - name: make_vave
-      run: mkdir -p objects && make
+      run: cd vave && mkdir -p objects && make
