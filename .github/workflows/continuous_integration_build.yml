@@ -13,12 +13,14 @@ jobs:
     steps:
     - name: checkout_vave
       uses: actions/checkout@v4
+      with:
+        path: vave
     - name: checkout_cexil
       uses: actions/checkout@v4
       with:
         repository: alic3dev/cexil
-        path: ../cexil
+        path: cexil
     - name: make_cexil
-      run: cd ../cexil && make
-    - name: make
+      run: cd ./cexil && mkdir -p objects && make
+    - name: make_vave
       run: mkdir -p objects && make
