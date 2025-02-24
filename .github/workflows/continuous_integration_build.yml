@@ -15,10 +15,10 @@ jobs:
       uses: actions/checkout@v4
     - name: checkout_cexil
       uses: actions/checkout@v4
-        with:
-          repository: alic3dev/cexil
-          path: ../cexil
+      with:
+        repository: alic3dev/cexil
+        path: ../cexil
     - name: make_cexil
-        run: cd ../cexil && make
+      run: cd ../cexil && make
     - name: make
       run: mkdir -p objects && make
